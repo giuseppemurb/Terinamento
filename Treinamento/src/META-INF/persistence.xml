@@ -17,7 +17,7 @@
                 value="org.postgresql.Driver" />
 
             <property name="javax.persistence.jdbc.url"
-                value="jdbc:postgresql://187.36.113.8:5432/treinamento" />
+                value="jdbc:postgresql://terinamento.cllpmpaqvpvc.sa-east-1.rds.amazonaws.com/treinamento" />
 
             <property name="javax.persistence.jdbc.user" value="postgres" />
             <property name="javax.persistence.jdbc.password" value="gfmfiscalizacao" />
