@@ -1,0 +1,49 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+
+    <!-- unidade de persistencia com o nome financas -->
+    <persistence-unit name="appRXT">
+
+        <!-- Implementação do JPA, no nosso caso Hibernate -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+
+        <properties>    
+            <!-- Propriedades JDBC -->
+            <property name="javax.persistence.jdbc.driver" 
+                value="org.postgresql.Driver" />
+
+            <property name="javax.persistence.jdbc.url"
+                value="jdbc:postgresql://terinamento.cllpmpaqvpvc.sa-east-1.rds.amazonaws.com/treinamento" />
+
+            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="gfmfiscalizacao" />
+            
+
+            <!-- Configurações específicas do Hibernate -->
+            <property name="hibernate.dialect" 
+                value="org.hibernate.dialect.PostgreSQLDialect" />
+
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true" />
+            <property name="connection.pool_size" value="1"/>
+           
+            
+            <!-- Configuração do Hibernate Envers -->
+            <property name="org.hibernate.envers.default_schema" value="auditoria"/>
+			<property name="post-insert" value="org.hibernate.ejb.event.EJB3PostInsertEventListener, 
+			org.hibernate.envers.event.EnversListener" />
+       		<property name="post-update" value="org.hibernate.ejb.event.EJB3PostUpdateEventListener, 
+       		org.hibernate.envers.event.EnversListener" />
+       		<property name="post-delete" value="org.hibernate.ejb.event.EJB3PostUpdateEventListener, 
+       		org.hibernate.envers.event.EnversListener" />
+			</properties>
+
+    
+		</persistence-unit>
+    
+</persistence>
