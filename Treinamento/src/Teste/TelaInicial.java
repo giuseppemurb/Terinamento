@@ -15,10 +15,8 @@ public class TelaInicial {
 		System.out.println("2 - consultar linha pelo numero");
 		System.out.println("3 - consultar todas as linhas cadastradas");
 		System.out.println("4 - sair");
-/*receber do usuario o numero referente a opção e verificar se é um numero valido. Se valido
- * imprimir o numero, se não valido imprimir -não valido  */
-		
-		
+		/*receber do usuario o numero referente a opção e verificar se é um numero valido. Se valido
+		 * imprimir o numero, se não valido imprimir -não valido  */
 		
 		boolean lacoWhile = true;
 		
