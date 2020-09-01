@@ -45,7 +45,7 @@ public class LinhaDao {
 		em.getTransaction().begin();
 				
 		TypedQuery<Linha> typedQuery;
-		typedQuery = em.createQuery("FROM Linha l WHERE l.numero = :pNumero and l.ativo=true", Linha.class);
+		typedQuery = em.createQuery("FROM Linha l WHERE l.numeroLinha = :pNumero and l.ativo=true", Linha.class);
 		typedQuery.setParameter("pNumero", numeroLinha);
 		try {
 		linhaDB = typedQuery.getSingleResult();
