@@ -105,9 +105,12 @@ public class TelaInicial {
 				
 				LinhaDao linhaDao = new LinhaDao();
 				List<Linha> listaLinhasCadastradas = new ArrayList<Linha>();
+				
 				listaLinhasCadastradas = linhaDao.retornaListaLinha();
-				for(Linha linhaBanco : listaLinhasCadastradas) {
+
+				for(Linha linhaRetornadaB : listaLinhasCadastradas) {
 					
+					System.out.println(linhaRetornadaB.toString());
 					
 				}
 
