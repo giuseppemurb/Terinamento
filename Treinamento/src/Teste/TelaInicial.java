@@ -49,18 +49,13 @@ public class TelaInicial {
 				
 				if(respostaUsuario.equals("s")) {
 					
-		/*enviar o objeto da classe linha para salvar na nuvem*/
+					/*enviar o objeto da classe linha para salvar na nuvem*/
 					
 					LinhaDao linhaDao = new LinhaDao();
 					linhaDao.inserirLinhaDB(novaLinha);
-					
-					
-					
-					
+
 					System.out.println("salvo com sucesso");
-					
-					
-					
+
 				}
 				
 				else {
