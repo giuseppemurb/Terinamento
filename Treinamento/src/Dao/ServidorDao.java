@@ -2,8 +2,6 @@ package Dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
-import Model.LinhaNomes;
 import Model.Servidor;
 import Util.JPAUtilColetivo;
 
