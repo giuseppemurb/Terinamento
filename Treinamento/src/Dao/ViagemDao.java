@@ -1,7 +1,12 @@
 package Dao;
 
-import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import Model.Linha;
 import Model.Viagem;
 import Util.JPAUtilColetivo;
 
@@ -35,8 +40,6 @@ public class ViagemDao {
 		em.getTransaction().begin();
 		Viagem viagemDb = new Viagem();
 		
-		
-		
 		try {
 			viagemDb = em.find(Viagem.class, id);
 			em.getTransaction().commit();
@@ -51,6 +54,30 @@ public class ViagemDao {
 		
 		
 		return viagemDb;
+		
+	}
+	
+	public List<Viagem> retornarListViagem(){
+		EntityManager em = new JPAUtilColetivo().getEntityManager();
+		em.getTransaction().begin();
+		
+		TypedQuery<Viagem> typedQuery;
+		typedQuery = em.createQuery("FROM Viagem v WHERE v.id != null", Viagem.class);
+		List<Viagem> listViagem = new ArrayList<Viagem>();
+		
+		try {
+			listViagem = typedQuery.getResultList();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			listViagem = null;
+			e.printStackTrace();
+			
+		}
+		finally {
+			em.close();
+		}
+		
+		return listViagem;
 		
 	}
 
