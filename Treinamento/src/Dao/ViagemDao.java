@@ -88,6 +88,7 @@ public class ViagemDao {
 		try {
 			Viagem viagemDb = em.find(Viagem.class, id);
 			em.remove(viagemDb);
+			em.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
