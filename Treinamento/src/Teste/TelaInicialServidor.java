@@ -3,6 +3,7 @@ package Teste;
 import java.util.Scanner;
 
 import Controller.ServidorMetodos;
+import Dao.ServidorDao;
 import Model.Servidor;
 
 public class TelaInicialServidor {
@@ -10,6 +11,8 @@ public class TelaInicialServidor {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner leia = new Scanner(System.in);
+		ServidorDao servidorDao = new ServidorDao();
+		
 		System.out.println("\n**** CADASTRO DE SERVIDORES**** \n");
 		System.out.println("<1> Cadastrar usuario");
 		System.out.println("<2> Retornar usuário pela Matricula");
@@ -24,18 +27,32 @@ public class TelaInicialServidor {
 		System.out.println("Digite o nome do Servidor: ");
 		novoServidor.setNome(leia.nextLine());
 		System.out.println("Digite sua matricula: ");
-		novoServidor.setMatricula(leia.nextInt());
-		leia.nextLine();
+		novoServidor.setMatricula(leia.nextLine());
 		System.out.println("Digite seu login: ");
 		novoServidor.setLogin(leia.nextLine());
 		System.out.println("Digite sua senha: ");
 		novoServidor.setSenha(leia.nextLine());
 		
 		System.out.println(novoServidor.toString());
+		
+		
+		
+		Boolean servidorSalvo = servidorDao.inserirServidor(novoServidor);
+		
+		if(servidorSalvo==true) {
+			System.out.println("Servidor salvo");
+		}
+		
+		else {
+			System.out.println("Servidor não salvo");
+		}
 	}
+		
+		
 		else if(opcao==2) {
-			ServidorMetodos metodoMatricula = new ServidorMetodos();
-			metodoMatricula.retornoMatricula(leia.nextInt());
+			System.out.println("qual sua matricula: ");
+			System.out.println(servidorDao.retornaServidorMatricula(leia.nextLine()).toString().toUpperCase());
+			
 			
 		}
 	}

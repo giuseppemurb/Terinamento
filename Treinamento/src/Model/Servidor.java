@@ -11,7 +11,7 @@ public class Servidor {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private Integer matricula;
+	private String matricula;
 	private String login;
 	private String senha;
 	public Integer getId() {
@@ -26,10 +26,10 @@ public class Servidor {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Integer getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
-	public void setMatricula(Integer matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 	public String getLogin() {
