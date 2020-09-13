@@ -16,6 +16,7 @@ public class TelaInicialCadastroDeViagem {
 		Scanner leia = new Scanner(System.in);
 		ViagemDao viagemDao = new ViagemDao();
 		// List<Endereco> listaEnderecos = new ArrayList<Endereco>();
+		
 		List<Viagem> viagens = new ArrayList<Viagem>();
 		
 		Boolean cadastroViagens = true;
@@ -78,11 +79,23 @@ public class TelaInicialCadastroDeViagem {
 			
 		}
 
-		else if (opcao == 3)
+		else if (opcao == 3) {
 			// retornar todas as viagens cadastradas e imprimir no console
-			viagens.forEach(itemViagem -> System.out.println(itemViagem));
-		
+			List <Viagem> listViagemDb = viagemDao.retornarListViagem();
+			if(listViagemDb!=null) {
+				
+				System.out.println("todas cadastradas: " );
+				listViagemDb.forEach(cadaViagem->{
+					System.out.println(cadaViagem);
+				});
+			}
+			
+			else {
+				System.out.println("nenhuma viagem encontrada");
+			}
+		}
 		// apagar viagem pelo ID
+		
 		else if (opcao == 4) {
 			System.out.println("Digite o ID");
 
