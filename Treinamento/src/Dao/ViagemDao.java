@@ -80,5 +80,24 @@ public class ViagemDao {
 		return listViagem;
 		
 	}
+	
+	public Boolean exluirViagemPelaId(Integer id) {
+		EntityManager em = new JPAUtilColetivo().getEntityManager();
+		em.getTransaction().begin();
+		
+		try {
+			Viagem viagemDb = em.find(Viagem.class, id);
+			em.remove(viagemDb);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		} finally {
+			em.close();
+		}
+		
+		return true;
+		
+	}
 
 }
