@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import Dao.LinhaDao;
+import Dao.ViagemDao;
 import Model.Endereco;
 import Model.Viagem;
 
@@ -45,7 +46,16 @@ public class TelaInicialCadastroDeViagem {
 			System.out.println(novaViagem.toString()); 
 			System.out.println("Horario da Partida " + novaViagem.getHorarioPartida().substring(0,2));
 			
-
+			ViagemDao viagemDao = new ViagemDao();
+			Boolean resultadoInsercaoBanco = viagemDao.inserirViagem(novaViagem);
+			if(resultadoInsercaoBanco==true) {
+				System.out.println("Salvo");
+				
+			}
+			else {
+				System.out.println("não salvo");
+			}
+			
 		}
 
 		else if (opcao == 2) {
