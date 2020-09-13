@@ -64,6 +64,7 @@ public class TelaInicialCadastroDeViagem {
 			// retornar a viagem pelo id e imprimir no console
 			System.out.println("digite o Id");
 			Integer x = leia.nextInt();
+			leia.nextLine();
 			System.out.println("ID: " + x);
 			Viagem viagemDb = viagemDao.retornarViagemPelaId(x);
 			if(viagemDb != null) {
@@ -98,6 +99,16 @@ public class TelaInicialCadastroDeViagem {
 		
 		else if (opcao == 4) {
 			System.out.println("Digite o ID");
+			ViagemDao deletarDao = new ViagemDao();
+			Boolean resultadoDelete = deletarDao.exluirViagemPelaId(leia.nextInt());
+			leia.nextLine();
+			if(resultadoDelete) {
+				System.out.println("Excluido");
+			}
+			
+			else {
+				System.out.println("Não excluido");
+			}
 
 		}
 
