@@ -14,6 +14,7 @@ public class TelaInicialCadastroDeViagem {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner leia = new Scanner(System.in);
+		ViagemDao viagemDao = new ViagemDao();
 		// List<Endereco> listaEnderecos = new ArrayList<Endereco>();
 		List<Viagem> viagens = new ArrayList<Viagem>();
 		
@@ -46,7 +47,7 @@ public class TelaInicialCadastroDeViagem {
 			System.out.println(novaViagem.toString()); 
 			System.out.println("Horario da Partida " + novaViagem.getHorarioPartida().substring(0,2));
 			
-			ViagemDao viagemDao = new ViagemDao();
+			
 			Boolean resultadoInsercaoBanco = viagemDao.inserirViagem(novaViagem);
 			if(resultadoInsercaoBanco==true) {
 				System.out.println("Salvo");
@@ -60,9 +61,21 @@ public class TelaInicialCadastroDeViagem {
 
 		else if (opcao == 2) {
 			// retornar a viagem pelo id e imprimir no console
-			System.out.println("digite o ID");
-			novaViagem.setId(leia.nextInt());
-
+			System.out.println("digite o Id");
+			Integer x = leia.nextInt();
+			System.out.println("ID: " + x);
+			Viagem viagemDb = viagemDao.retornarViagemPelaId(x);
+			if(viagemDb != null) {
+				System.out.println( viagemDb);
+				
+			}
+			
+			else {
+				System.out.println("Viagem não econtrada com essa Id");
+			}
+			
+		
+			
 		}
 
 		else if (opcao == 3)
