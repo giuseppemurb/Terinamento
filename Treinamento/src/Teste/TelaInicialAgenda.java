@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Model.Agenda;
+import Model.Contato;
 
 public class TelaInicialAgenda {
 
