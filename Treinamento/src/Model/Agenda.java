@@ -2,6 +2,7 @@ package Model;
 
 public class Agenda {
 	
+	private Integer id;
 	private String nome;
 	private Integer numTelefone;
 	private String endereçoEmail;
