@@ -86,18 +86,14 @@ public class TelaInicialCadastroViagem {
 			List<Viagem> retornaListaViagemBd = novaViagem.retornarListViagem();
 			//System.out.println(retornaListaViagemBd);
 			System.out.println(retornaListaViagemBd);
-					
 			
-			retornaListaViagemBd.forEach( cadaViagem -> 
-			{
-				System.out.println(cadaViagem.getLinha() + "- ["+cadaViagem.getHorarioPartida()+"] - ["+cadaViagem.getHorarioChegada()+"]");
+			
+			
+			retornaListaViagemBd.forEach(cadaViagem->{
+				System.out.println("[" + cadaViagem.getLinha() + "]" + "[" + cadaViagem.getHorarioChegada() +"]"+ "[" + cadaViagem.getHorarioPartida()+"]");
 				
-			}
-			);
-
-			// Linha 90 Salva item por item da Lista retornaListaViagem na novaLista//
-			// retornaListaViagem.forEach(cadaViagem->novaLista.add(cadaViagem));
-
+				
+			});
 		
 		} // fim opcao 3
 		
