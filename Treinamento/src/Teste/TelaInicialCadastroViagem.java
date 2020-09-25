@@ -88,8 +88,13 @@ public class TelaInicialCadastroViagem {
 			System.out.println(retornaListaViagemBd);
 					
 			
-			retornaListaViagemBd.forEach(cadaViagem->System.out.println(cadaViagem));
-			
+			retornaListaViagemBd.forEach( cadaViagem -> 
+			{
+				System.out.println(cadaViagem.getLinha() + "- ["+cadaViagem.getHorarioPartida()+"] - ["+cadaViagem.getHorarioChegada()+"]");
+				
+			}
+			);
+
 			// Linha 90 Salva item por item da Lista retornaListaViagem na novaLista//
 			// retornaListaViagem.forEach(cadaViagem->novaLista.add(cadaViagem));
 
