@@ -77,5 +77,13 @@ public class Viagem {
 		}
 	}
 	
+	
+	public String retornarStringViagem(Viagem viagem) {
+		
+		String retornoViagem = "[" + viagem.getLinha() + "]" + "[" + viagem.getHorarioChegada() +"]"+ "[" + viagem.getHorarioPartida()+"]";
+		return retornoViagem;
+		
+	}
+	
 
 }	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Controller.ViagemController;
 import Dao.ViagemDao;
 import Model.Viagem;
 
@@ -12,21 +13,18 @@ public class TelaInicialCadastroViagem {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner captura = new Scanner(System.in);
-		
+		ViagemController viagemController = new ViagemController();
 		Boolean lacoWhile = true;
 		while(lacoWhile) {
-		System.out.println("\n**** CADASTRO DE VIAGENS****\n");
-		System.out.println("<1> Cadastrar Viagem");
-		System.out.println("<2> Retorna Viagem pela Id");
-		System.out.println("<3> Retorna Viagens e Imprime na tela");
-		System.out.println("<4> Apaga Viagem pela Id");
-		System.out.println("<5> Sair");
+			
+		viagemController.imprimirOpcoes();
 
 		Integer opcao;
 		opcao = captura.nextInt();
 		captura.nextLine();
 
 		if (opcao == 1) {
+			
 			Viagem novaViagem = new Viagem();
 			System.out.println("Digite o número da Linha:");
 			novaViagem.setLinha(captura.nextInt());
@@ -90,7 +88,8 @@ public class TelaInicialCadastroViagem {
 			
 			
 			retornaListaViagemBd.forEach(cadaViagem->{
-				System.out.println("[" + cadaViagem.getLinha() + "]" + "[" + cadaViagem.getHorarioChegada() +"]"+ "[" + cadaViagem.getHorarioPartida()+"]");
+				
+				System.out.println(cadaViagem.retornarStringViagem(cadaViagem));
 				
 				
 			});
