@@ -10,10 +10,13 @@ public class Viagem {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private Integer linha;
-	private Integer tabela;
-	private String horarioPartida;
-	private String horarioChegada;
+	//null é != de vazio (não instanciado)
+	private Integer linha = null;  //atributo obrigatório
+	private Integer tabela = null; //atributo obrigatório
+	private String horarioPartida = new String(); //atributo obrigatório
+	private String horarioChegada = new String(); //atributo obrigatório
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -40,7 +43,7 @@ public class Viagem {
 			this.horarioPartida = horarioPartida;
 		}
 		else {
-			System.out.println("horario deve ser escrito assim:  00h00");
+			System.out.println("Escrita da hora deve seguir o Ex:  00h00");
 		}
 		
 	}
@@ -57,6 +60,21 @@ public class Viagem {
 	public String toString() {
 		return "Viagem [id=" + id + ", linha=" + linha + ", tabela=" + tabela + ", horarioPartida=" + horarioPartida
 				+ ", horarioChegada=" + horarioChegada + "]";
+	}
+	//Criar metodo modo Viagem para verfificar se o objeto esta como todos os atributos
+	//obrigatórios preenchidos
+	public Boolean verificarPreenchimento() {
+			if(linha!=null && tabela!=null && !horarioPartida.equals("") && !horarioChegada.equals("")) {
+			System.out.println("Dados preenchidos");
+			return true;
+			
+			
+		}
+		else {
+			System.out.println("Dados não Preenchidos");
+			return false;
+			
+		}
 	}
 	
 

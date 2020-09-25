@@ -18,14 +18,14 @@ public class Contato {
 	private Integer numeroCasa;
 	private String cidade;
 	private String estado;
-	private String cep;
+	
 	
 	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toLowerCase();
 	}
 	public Integer getNumTelefone() {
 		return numTelefone;
@@ -55,25 +55,35 @@ public class Contato {
 		return cidade;
 	}
 	public void setCidade(String cidade) {
-		if(cidade.length()==2) {
-		this.cidade = cidade.toLowerCase();
+		
+		this.cidade = cidade;
 		}
-		else {
-			System.out.println("Digitar somente siglas dos Estados");
-		}
-	}
+		
+	
 	public String getEstado() {
 		return estado;
 	}
 	public void setEstado(String estado) {
-		this.estado = estado;
+		if(estado.length()==2) {
+		this.estado = estado.toLowerCase();
 	}
-	public String getCep() {
-		return cep;
+		else {
+			System.out.println("Digitar somente as siglas dos Estados");
+		}
 	}
-	public void setCep(String cep) {
-		this.cep = cep;
+	public Integer getId() {
+		return id;
 	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	@Override
+	public String toString() {
+		return "Contato [id=" + id + ", nome=" + nome + ", numTelefone=" + numTelefone + ", endereçoEmail="
+				+ endereçoEmail + ", rua=" + rua + ", numeroCasa=" + numeroCasa + ", cidade=" + cidade + ", estado="
+				+ estado + "]";
+	}
+	
 
 	
 	
