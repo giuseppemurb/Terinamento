@@ -24,9 +24,11 @@ public class ViagemController {
 
 	public Integer solicitarOpcao(Integer opcao, Scanner captura) {
 			//Integer opcao = leia.nextInt();
-		//Scanner captura = leia
+		    //Scanner captura = leia
 				
-	
+		if(!verificaOpcoes(opcao)) {
+			return -1;
+		}
 		
 		if (opcao == 1) {
 			
@@ -126,16 +128,21 @@ public class ViagemController {
 		else if (opcao == 5) {
 			
 		}
-		else {
-			
-			return -1;
-		}
 			
 			
 		return opcao;
 		
 } //fim metodo opcao
 	
+	private Boolean verificaOpcoes(Integer opcao) {
+		
+		if(opcao>=1 && opcao<=5) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }// fim controller
 
 
