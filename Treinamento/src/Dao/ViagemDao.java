@@ -101,4 +101,28 @@ public class ViagemDao {
 		
 	}
 
+	public Boolean inserirListViagem(List<Viagem> listViagensNova) {
+		Boolean resultadoInsercao = false;
+		EntityManager em = new JPAUtilColetivo().getEntityManager();
+		em.getTransaction().begin();
+		
+		try {
+			listViagensNova.forEach(viagemNova->{
+				em.persist(viagemNova);
+			});
+			em.getTransaction().commit();
+			resultadoInsercao = true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			resultadoInsercao = false;
+		} finally {
+			
+			em.close();
+			
+		}
+		
+		return resultadoInsercao;
+		
+	}
 }
