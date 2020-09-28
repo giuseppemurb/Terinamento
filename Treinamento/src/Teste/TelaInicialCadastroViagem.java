@@ -22,10 +22,13 @@ public class TelaInicialCadastroViagem {
 		Integer retornoOpcao = viagemController.solicitarOpcao(leia.nextInt(), leia);
 		if(retornoOpcao==5) {
 			lacoWhille = false;
+			System.out.println("sair");
+			leia.close();
 			
 		}
 		else if(retornoOpcao == -1) {
 			System.out.println("opção invalida");
+			
 		}
 		
 		}
