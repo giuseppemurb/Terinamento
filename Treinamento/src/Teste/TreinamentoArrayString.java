@@ -3,6 +3,8 @@ package Teste;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import Controller.ViagemController;
 import Dao.ViagemDao;
 import Model.Viagem;
 
@@ -17,6 +19,7 @@ public class TreinamentoArrayString {
 		List<Viagem> listViagensNovas = new ArrayList<Viagem>();
 
 		while (lacoWhile) {
+			
 			// Insere as informações
 			System.out.println("Linha:");
 			arrayStringViagem[0] = scan.nextLine();
@@ -26,6 +29,8 @@ public class TreinamentoArrayString {
 			arrayStringViagem[2] = scan.nextLine();
 			System.out.println("Horário Chegada:");
 			arrayStringViagem[3] = scan.nextLine();
+			
+			
 
 			// arrayStringViagem = {"080","3","19h10","19h50"};
 			System.out.println("Linha: " + arrayStringViagem[0]);
@@ -35,10 +40,19 @@ public class TreinamentoArrayString {
 
 			// Criar uma Viagem com os dados da String[] (Popular)
 			Viagem novaViagem = new Viagem();
-			novaViagem.setLinha(Integer.parseInt(arrayStringViagem[0]));
+			//ViagemController viagemController = new ViagemController();					
+			//Integer linha = viagemController.entraString(arrayStringViagem[0] );
+			
+			Integer linha = (Integer.parseInt(arrayStringViagem[0]));
+			
+			novaViagem.setLinha(linha);
+			
+			//novaViagem.setLinha(Integer.parseInt(arrayStringViagem[0]));
 			novaViagem.setTabela(Integer.parseInt(arrayStringViagem[1]));
 			novaViagem.setHorarioPartida(arrayStringViagem[2]);
 			novaViagem.setHorarioChegada(arrayStringViagem[3]);
+			
+			
 
 			System.out.println(novaViagem.toString());
 			
@@ -75,5 +89,6 @@ public class TreinamentoArrayString {
 		
 		System.out.println("Fim do programa");
 	}
+	
 
 }

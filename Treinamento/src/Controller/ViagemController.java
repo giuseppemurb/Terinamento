@@ -141,6 +141,13 @@ public class ViagemController {
 		} else {
 			return false;
 		}
+		
+		
+	}
+	
+	public Integer entraString (String texto) {
+		Integer numero = Integer.parseInt(texto);
+		return numero;
 	}
 
 }// fim controller
