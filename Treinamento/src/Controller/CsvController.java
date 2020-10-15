@@ -22,6 +22,7 @@ public class CsvController {
 		List<String[]> retornoCsv = new ArrayList<String[]>();
 		
 		CSVReader reader;
+		
 		try {
 			FileInputStream fis = new FileInputStream(caminhoArquivo);
 			InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
