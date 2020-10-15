@@ -36,6 +36,7 @@ public class TelaInicialLeituraCsv {
 			
 		}
 		
+		
 		ViagemDao viagemDao = new ViagemDao();
 		
 		List<Viagem> listaViagensBanco = viagemDao.retornarListViagem();
